@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Escolha o Mapa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<a class="button" href="#" onclick="chooseMap()">Abrir Mapa</a>
+
+<script>
+    function chooseMap() {
+        var address = 'Av. Paulista, 1578, São Paulo, SP'; // Mude para seu endereço
+        var googleMapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(address);
+        var appleMapsUrl = 'http://maps.apple.com/?q=' + encodeURIComponent(address);
+        var wazeUrl = 'https://waze.com/ul?q=' + encodeURIComponent(address);
+
+        var choice = prompt("Escolha o serviço de mapa:\n1. Google Maps\n2. Apple Maps\n3. Waze");
+
+        switch (choice) {
+            case '1':
+                window.open(googleMapsUrl, '_blank');
+                break;
+            case '2':
+                window.open(appleMapsUrl, '_blank');
+                break;
+            case '3':
+                window.open(wazeUrl, '_blank');
+                break;
+            default:
+                alert("Escolha inválida.");
+        }
+    }
+</script>
+
+</body>
+</html>
